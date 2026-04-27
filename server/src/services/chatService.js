@@ -24,16 +24,7 @@ exports.sendMessage = async (chatId, senderId, content) => {
   return savedMessage;
 };
 
-module.exports = {
-  createChat,
-  getUserChats,
-  sendMessage
+// ── YENİ: Sohbet mesajlarını eskiden yeniye getir ────────────────────────────
+exports.getMessages = async (chatId) => {
+  return await Message.find({ chatId }).sort({ createdAt: 1 });
 };
-
-
-
-
-
-/* await Chat.findByIdAndUpdate(chatId, { lastMessage: savedMessage._id });
- return savedMessage;
-};*/
